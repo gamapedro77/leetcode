@@ -1,22 +1,20 @@
 package BestTimeToBuyAndSellStock;
 
-import java.util.HashMap;
-
 public class Solution {
     public static void main(String[] args) throws Exception {
-        System.out.println(maxProfit(new int[] { 7, 6, 4, 3, 1}));
+        System.out.println(maxProfit(new int[] {2,4,1}));
     }
 
     public static int maxProfit(int[] prices) {
-        int smaller = -1;
-        int greater = -1;
-        for (int price : prices) {
-            if(smaller == -1 || smaller >= price) {
-                smaller = price;
-            } else if(price > greater) {
-                greater = price;
+        int profit = 0;
+        int length = prices.length;
+        int lastBuy = 0;
+        for (int i = 0; i < length; i++) {
+            if(prices[lastBuy] > prices[i]) {
+                lastBuy = i;
             }
+            profit = Math.max(profit, prices[i] - prices[lastBuy]);
         }
-        return greater == -1 ? 0 : greater - smaller;
+        return profit;
     }
 }
