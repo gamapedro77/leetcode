@@ -19,15 +19,14 @@ It took me a while to understand this, and I would not have been able to figure 
 
 ## The Pseudo-Code
 
-1- We initialize two integers to keep track of the *low* and *high* values: `int low = 0;int high = nums.length - 1;`
-2- Now we do a while loop as long as low is less or equal than high;
-3 - We get our mid point of the array by doing: `int mid = Math.abs(low + high) / 2;`
-4 - We check if the mid point is our target and if it is we return *mid* here.
-5 - We now move on to checking if the left half of the array is sorted by checking if `nums[low]` is less or equal than `nums[mid]`.
-5.1 - If it is sorted we check if our target should be located in here by looking if our target is greater than or equal `nums[low]` and less than or equal to `nums[mid]` and if it is located in this section then we make `high = mid - 1` so that we look for it in here.
-5.2 If it isn't sorted then it should be on the other half so we make `low = mid + 1`.
-6- We can just go *else* now because we already know that if the left half isn't sorted then the right half must be.
-6.1 - Now we check if the target should be here using the same logic: our target should be greater or equal than `nums[mid]` and less than `nums[high]` if it is then we make `low = mid + 1`.
-6.2 - Else we make `high = mid - 1;`
-
+1- We initialize two integers to keep track of the *low* and *high* values: `int low = 0;int high = nums.length - 1;`<br>
+2 - Now we do a while loop as long as low is less or equal than high;<br>
+3 - We get our mid point of the array by doing: `int mid = Math.abs(low + high) / 2;`<br>
+4 - We check if the mid point is our target and if it is we return *mid* here.<br>
+5 - We now move on to checking if the left half of the array is sorted by checking if `nums[low]` is less or equal than `nums[mid]`.<br>
+5.1 - If it is sorted we check if our target should be located in here by looking if our target is greater than or equal `nums[low]` and less than or equal to `nums[mid]` and if it is located in this section then we make `high = mid - 1` so that we look for it in here.<br>
+5.2 - If it isn't sorted then it should be on the other half so we make `low = mid + 1`.<br>
+6 - We can just go *else* now because we already know that if the left half isn't sorted then the right half must be.<br>
+6.1 - Now we check if the target should be here using the same logic: our target should be greater or equal than `nums[mid]` and less than `nums[high]` if it is then we make `low = mid + 1`.<br>
+6.2 - Else we make `high = mid - 1;`<br>
 7 - We now return -1 because this must mean that the target is NOT inside this array list.
