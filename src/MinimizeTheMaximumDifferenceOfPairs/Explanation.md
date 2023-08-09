@@ -31,4 +31,8 @@ With this new value of `h` we make a new guess of `m` and try again, in this cas
 
 So you see, whenever you can make a pair it means `m` should decrease, and whenever you cannot make a pair `m` should increase. This formula does that for us `m = (l + h) / 2` as long as we update the values of `l` and `h` accordingly.
 
+Now for the checking if we can make `p` pairs of numbers such that their `p2 - p1 <= m` part, this is a much much simpler, we start by initializing a counter `c` = `0`
+and then we loop through `nums` checking consecutive pairs `nums[i + 1] - nums[i] <= m` we just have to be careful to not check two pairs that have the same index, remember the problem:  `"ensure no index appears more than once amongst the` p` pairs."` so what we do to guarantee we are not getting the same index twice:  If our current pair fits our criteria we now check the next `index + 1` else we just check the next `index`, and then we return `c >= p` and thats it.
+
 At the end of that we just return `l` and there is your answear.
+
